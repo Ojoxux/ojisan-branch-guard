@@ -1,13 +1,13 @@
 # 🧔 オヂサンガード
 
-> mainブランチへの直接pushを防ぐオヂサン警告システム（husky プラグイン）
+> mainブランチへの直接commit/pushを防ぐオヂサン警告git hook
 
 ![npm version](https://img.shields.io/npm/v/ojisan-guard)
 ![license](https://img.shields.io/npm/l/ojisan-guard)
 
 ## これは何？
 
-`main`ブランチに直接pushしようとすると、オヂサンが警告してくれる husky プラグインです。
+`main`ブランチに直接commit/pushしようとすると、オヂサンが警告してくれます。
 
 ## 必要なもの
 
@@ -18,12 +18,15 @@
 
 ```bash
 # 1. husky をセットアップ（まだの場合）
-pnpm add -D husky
-pnpm exec husky init
+npm install -D husky
+npx husky init
 
 # 2. ojisan-guard をインストール
-pnpm add -D ojisan-guard
-pnpm exec ojisan-guard install
+npm install -D ojisan-guard
+npx ojisan-guard install
+
+# 3. git に追加
+git add .husky/pre-commit .husky/pre-push
 ```
 
 ## 使い方
@@ -51,7 +54,7 @@ husky の hook は `.husky/` ディレクトリに保存されるので、git �
 
 ```bash
 # オヂサンを配置したら commit
-git add .husky/pre-push
+git add .husky/pre-commit .husky/pre-push
 git commit -m "feat: オヂサンを配置"
 ```
 

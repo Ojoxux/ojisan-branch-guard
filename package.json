@@ -1,7 +1,7 @@
 {
   "name": "ojisan-guard",
-  "version": "0.1.0",
-  "description": "mainブランチへの直接pushを防ぐオヂサン警告システム（huskyプラグイン）",
+  "version": "0.1.2",
+  "description": "mainブランチへの直接commit/pushを防ぐオヂサン警告git hook",
   "main": "dist/index.js",
   "bin": {
     "ojisan-guard": "dist/index.js"
@@ -23,7 +23,7 @@
     "ojisan",
     "cli"
   ],
-  "author": "",
+  "author": "ojoxux",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.0.0",
@@ -46,6 +46,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Ojoxux/ojisan-guard"
   }
 }
