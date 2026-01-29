@@ -1,6 +1,6 @@
 {
   "name": "ojisan-guard",
-  "version": "0.1.2",
+  "version": "0.0.1",
   "description": "mainブランチへの直接commit/pushを防ぐオヂサン警告git hook",
   "main": "dist/index.js",
   "bin": {
