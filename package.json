@@ -1,0 +1,51 @@
+{
+  "name": "ojisan-guard",
+  "version": "0.1.0",
+  "description": "mainブランチへの直接pushを防ぐオヂサン警告システム（huskyプラグイン）",
+  "main": "dist/index.js",
+  "bin": {
+    "ojisan-guard": "dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "git",
+    "hook",
+    "pre-push",
+    "husky",
+    "main",
+    "branch",
+    "protection",
+    "ojisan",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "husky": "^9.1.7",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "husky": ">=8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "husky": {
+      "optional": false
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
