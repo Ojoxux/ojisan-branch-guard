@@ -36,8 +36,6 @@ git add .husky/pre-commit .husky/pre-push
 git commit -m "feat: ｵﾁﾞｻﾝを配置😎"
 ```
 
-チーム全員で共有できる。
-
 ## 使い方
 
 ### ｵﾁﾞｻﾝを配置
