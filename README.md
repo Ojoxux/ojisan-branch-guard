@@ -1,64 +1,62 @@
-# 🧔 オヂサンがキミのブランチを守るヨ💪
+# 🧔 ｵﾁﾞｻﾝ😎が、ｷﾐの、ﾌﾞﾗﾝﾁを、守るﾖ💪
 
-> main/masterブランチへの直接commit/pushを防ぐオヂサン警告git hook
+> main/masterﾌﾞﾗﾝﾁへの直接commit/pushを防ぐｵﾁﾞｻﾝ警告git hook
 
 ![npm version](https://img.shields.io/npm/v/ojisan-branch-guard)
 ![license](https://img.shields.io/npm/l/ojisan-branch-guard)
 
 ## これは何？
 
-`main`ブランチに直接commit/pushしようとすると、オヂサンが警告してくれます。
+`main`や`master`ﾌﾞﾗﾝﾁに直接commit/pushしようとすると、ｵﾁﾞｻﾝ😎が警告してくれます。
 
-## 必要なもの
-
-- Node.js >= 18
-- [husky](https://typicode.github.io/husky/) がセットアップ済みであること
 
 ## インストール
+
+### 方法1: curl（どの環境でも使える）
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Ojoxux/ojisan-branch-guard/main/install.sh | sh
+```
+
+Node.js不要。個人利用向け。
+
+### 方法2: npm + husky（チーム共有向け）
 
 ```bash
 # 1. husky をセットアップ（まだの場合）
 npm install -D husky
 npx husky init
 
-# 2. ojisan-guard をインストール
-npm install -D ojisan-guard
-npx ojisan-guard install
+# 2. ojisan-branch-guard をインストール
+npm install -D ojisan-branch-guard
+npx ojisan-branch-guard install
 
 # 3. git に追加
 git add .husky/pre-commit .husky/pre-push
+git commit -m "feat: ｵﾁﾞｻﾝを配置😎"
 ```
 
 ## 使い方
 
-### オヂサンを配置
+### ｵﾁﾞｻﾝを配置
 
 ```bash
-# mainブランチを監視（デフォルト）
-npx ojisan-guard install
+# main/masterﾌﾞﾗﾝﾁを自動検出
+npx ojisan-branch-guard install
 
-# 別のブランチを監視
-npx ojisan-guard install --branch=master
-npx ojisan-guard install --branch=develop
+# ﾌﾞﾗﾝﾁを指定
+npx ojisan-branch-guard install --branch=develop
 ```
 
-### オヂサンを解除
+### ｵﾁﾞｻﾝを解除
 
 ```bash
-npx ojisan-guard uninstall
+# npm版
+npx ojisan-branch-guard uninstall
+
+# curl版
+curl -fsSL https://raw.githubusercontent.com/Ojoxux/ojisan-branch-guard/main/uninstall.sh | sh
 ```
-
-## チームで共有
-
-husky の hook は `.husky/` ディレクトリに保存されるので、git で管理できます。
-
-```bash
-# オヂサンを配置したら commit
-git add .husky/pre-commit .husky/pre-push
-git commit -m "feat: オヂサンを配置"
-```
-
-これでチーム全員がオヂサンに守られます。
 
 ## 対応環境
 
@@ -73,20 +71,15 @@ GUIが使えない環境でも、ターミナルに警告が表示されます�
 ## どうしてもpushしたい場合
 
 ```bash
-# オヂサンを一時的に解除
-npx ojisan-guard uninstall
-
-# pushする
-git push origin main
-
-# オヂサンを再配置
-npx ojisan-guard install
+git push origin main --no-verify
 ```
 
-または、husky をスキップ：
+または一時的に解除：
 
 ```bash
-git push origin main --no-verify
+npx ojisan-branch-guard uninstall
+git push origin main
+npx ojisan-branch-guard install
 ```
 
 ## ライセンス
@@ -100,4 +93,4 @@ MIT
 
 ---
 
-🧔 「PRちゃんと出してネ💋」
+🧔 「ちゃんと、PR、出してﾈ😘💕」

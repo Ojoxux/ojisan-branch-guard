@@ -13,24 +13,27 @@ current_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
 if [ "$current_branch" = "${branch}" ]; then
   # macOS
   if command -v osascript >/dev/null 2>&1; then
-    osascript -e 'display alert "⚠️ オヂサンからの警告 ⚠️" message "アレ〜？💦「${branch}」ブランチで直接コミットしようとしてるノ⁉️😅\\n\\nそれはダメだゾ〜🧑‍🦲🚫\\n\\nちゃんと新しいブランチを作ってから作業してネ❣️\\n約束ダヨ😘💕 ナンチャッテ（笑）"' 2>/dev/null
+    osascript -e 'display alert "⚠️ ｵﾁﾞｻﾝ😎からの、警告⚠️" message "ｱﾚｱﾚ〜❓💦 ﾁｮｯﾄ待ってよ〜😅\\nもしかして、ｷﾐ、「${branch}」ﾌﾞﾗﾝﾁに、直接、ｺﾐｯﾄしようと、しちゃってるのｶﾅ🤔❓\\nｵﾁﾞｻﾝ😎、ﾋﾞｯｸﾘしちゃったﾖ💦\\n\\nそれは、ﾁｮｯﾄ、ﾀﾞﾒだゾ〜🙅❌❗\\n\\nちゃんと、新しい、ﾌﾞﾗﾝﾁを、作ってから、作業してﾈ❣️\\n約束ﾀﾞﾖ😘💕 ﾅﾝﾁｬｯﾃ😂(笑)"' 2>/dev/null
   # Linux with zenity
   elif command -v zenity >/dev/null 2>&1; then
-    zenity --warning --title="⚠️ オヂサンからの警告 ⚠️" --text="アレ〜？💦「${branch}」ブランチで直接コミットしようとしてるノ⁉️😅\\n\\nそれはダメだゾ〜🧑‍🦲🚫\\n\\nちゃんと新しいブランチを作ってから作業してネ❣️\\n約束ダヨ😘💕 ナンチャッテ（笑）" 2>/dev/null
+    zenity --warning --title="⚠️ ｵﾁﾞｻﾝ😎からの、警告⚠️" --text="ｱﾚｱﾚ〜❓💦 ﾁｮｯﾄ待ってよ〜😅\\nもしかして、ｷﾐ、「${branch}」ﾌﾞﾗﾝﾁに、直接、ｺﾐｯﾄしようと、しちゃってるのｶﾅ🤔❓\\nｵﾁﾞｻﾝ😎、ﾋﾞｯｸﾘしちゃったﾖ💦\\n\\nそれは、ﾁｮｯﾄ、ﾀﾞﾒだゾ〜🙅❌❗\\n\\nちゃんと、新しい、ﾌﾞﾗﾝﾁを、作ってから、作業してﾈ❣️\\n約束ﾀﾞﾖ😘💕 ﾅﾝﾁｬｯﾃ😂(笑)" 2>/dev/null
   # Windows (Git Bash / WSL)
   elif command -v powershell.exe >/dev/null 2>&1; then
-    powershell.exe -Command 'Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show("アレ〜？💦「${branch}」ブランチで直接コミットしようとしてるノ⁉️😅" + [char]10 + [char]10 + "それはダメだゾ〜🚫" + [char]10 + [char]10 + "ちゃんと新しいブランチを作ってから作業してネ❣️" + [char]10 + "約束ダヨ😘💕 ナンチャッテ（笑）", "⚠️ オヂサンからの警告 ⚠️", "OK", "Warning")' 2>/dev/null
+    powershell.exe -Command 'Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show("ｱﾚｱﾚ〜❓💦 ﾁｮｯﾄ待ってよ〜😅" + [char]10 + "もしかして、ｷﾐ、「${branch}」ﾌﾞﾗﾝﾁに、直接、ｺﾐｯﾄしようと、しちゃってるのｶﾅ🤔❓" + [char]10 + "ｵﾁﾞｻﾝ😎、ﾋﾞｯｸﾘしちゃったﾖ💦" + [char]10 + [char]10 + "それは、ﾁｮｯﾄ、ﾀﾞﾒだゾ〜🙅❌❗" + [char]10 + [char]10 + "ちゃんと、新しい、ﾌﾞﾗﾝﾁを、作ってから、作業してﾈ❣️" + [char]10 + "約束ﾀﾞﾖ😘💕 ﾅﾝﾁｬｯﾃ😂(笑)", "⚠️ ｵﾁﾞｻﾝ😎からの、警告⚠️", "OK", "Warning")' 2>/dev/null
   fi
 
   # Terminal fallback (always show)
   echo ""
-  echo "⚠️ オヂサンからの警告 ⚠️"
+  echo "⚠️ ｵﾁﾞｻﾝ😎からの、警告⚠️"
   echo ""
-  echo "アレ〜？💦「${branch}」ブランチで直接コミットしようとしてるノ⁉️😅"
+  echo "ｱﾚｱﾚ〜❓💦 ﾁｮｯﾄ待ってよ〜😅"
+  echo "もしかして、ｷﾐ、「${branch}」ﾌﾞﾗﾝﾁに、直接、ｺﾐｯﾄしようと、しちゃってるのｶﾅ🤔❓"
+  echo "ｵﾁﾞｻﾝ😎、ﾋﾞｯｸﾘしちゃったﾖ💦"
   echo ""
-  echo "それはダメだゾ〜🧑‍🦲🚫"
-  echo "ちゃんと新しいブランチを作ってから作業してネ❣️"
-  echo "約束ダヨ😘💕 ナンチャッテ（笑）"
+  echo "それは、ﾁｮｯﾄ、ﾀﾞﾒだゾ〜🙅❌❗"
+  echo ""
+  echo "ちゃんと、新しい、ﾌﾞﾗﾝﾁを、作ってから、作業してﾈ❣️"
+  echo "約束ﾀﾞﾖ😘💕 ﾅﾝﾁｬｯﾃ😂(笑)"
   echo ""
 
   exit 1
@@ -44,26 +47,28 @@ current_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
 if [ "$current_branch" = "${branch}" ]; then
   # macOS
   if command -v osascript >/dev/null 2>&1; then
-    osascript -e 'display alert "⚠️ オヂサンからの警告 ⚠️" message "アレレ〜？💦 もしかして「${branch}」ブランチにそのままプッシュしようとしちゃってるカナ⁉️😅\\n\\nそれはダメだゾ〜🧑‍🦲🚫\\n壊れちゃったら、オヂサン悲しくて泣いちゃうカモ😭💔\\n\\nちゃんと新しいブランチを作って、PR（プルリク）出してネ❣️\\n約束ダヨ😘💕 ナンチャッテ（笑）"' 2>/dev/null
+    osascript -e 'display alert "⚠️ ｵﾁﾞｻﾝ😎からの、警告⚠️" message "ｱﾚﾚ〜❓💦 ﾁｮｯﾄ、待ってよ〜😅\\nもしかして、ｷﾐ、「${branch}」ﾌﾞﾗﾝﾁに、そのまま、ﾌﾟｯｼｭしようと、しちゃってるのｶﾅ🤔❓\\nｵﾁﾞｻﾝ😎、ﾋﾞｯｸﾘしちゃったﾖ💦\\n\\nそれは、ﾁｮｯﾄ、ﾀﾞﾒだゾ〜🙅❌❗\\n壊れちゃったら、ｵﾁﾞｻﾝ😎、悲しくて、泣いちゃうｶﾓ😭💔\\n\\nちゃんと、新しい、ﾌﾞﾗﾝﾁを、作って、PR（ﾌﾟﾙﾘｸ）、出してﾈ❣️\\nｵﾁﾞｻﾝ😎との、約束ﾀﾞﾖ😘💕 ﾅﾝﾁｬｯﾃ😂(笑)"' 2>/dev/null
   # Linux with zenity
   elif command -v zenity >/dev/null 2>&1; then
-    zenity --warning --title="⚠️ オヂサンからの警告 ⚠️" --text="アレレ〜？💦 もしかして「${branch}」ブランチにそのままプッシュしようとしちゃってるカナ⁉️😅\\n\\nそれはダメだゾ〜🧑‍🦲🚫\\n壊れちゃったら、オヂサン悲しくて泣いちゃうカモ😭💔\\n\\nちゃんと新しいブランチを作って、PR（プルリク）出してネ❣️\\n約束ダヨ😘💕 ナンチャッテ（笑）" 2>/dev/null
+    zenity --warning --title="⚠️ ｵﾁﾞｻﾝ😎からの、警告⚠️" --text="ｱﾚﾚ〜❓💦 ﾁｮｯﾄ、待ってよ〜😅\\nもしかして、ｷﾐ、「${branch}」ﾌﾞﾗﾝﾁに、そのまま、ﾌﾟｯｼｭしようと、しちゃってるのｶﾅ🤔❓\\nｵﾁﾞｻﾝ😎、ﾋﾞｯｸﾘしちゃったﾖ💦\\n\\nそれは、ﾁｮｯﾄ、ﾀﾞﾒだゾ〜🙅❌❗\\n壊れちゃったら、ｵﾁﾞｻﾝ😎、悲しくて、泣いちゃうｶﾓ😭💔\\n\\nちゃんと、新しい、ﾌﾞﾗﾝﾁを、作って、PR（ﾌﾟﾙﾘｸ）、出してﾈ❣️\\nｵﾁﾞｻﾝ😎との、約束ﾀﾞﾖ😘💕 ﾅﾝﾁｬｯﾃ😂(笑)" 2>/dev/null
   # Windows (Git Bash / WSL)
   elif command -v powershell.exe >/dev/null 2>&1; then
-    powershell.exe -Command 'Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show("アレレ〜？💦 もしかして「${branch}」ブランチにそのままプッシュしようとしちゃってるカナ⁉️😅" + [char]10 + [char]10 + "それはダメだゾ〜🚫" + [char]10 + "壊れちゃったら、オヂサン悲しくて泣いちゃうカモ😭💔" + [char]10 + [char]10 + "ちゃんと新しいブランチを作って、PR（プルリク）出してネ❣️" + [char]10 + "約束ダヨ😘💕 ナンチャッテ（笑）", "⚠️ オヂサンからの警告 ⚠️", "OK", "Warning")' 2>/dev/null
+    powershell.exe -Command 'Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show("ｱﾚﾚ〜❓💦 ﾁｮｯﾄ、待ってよ〜😅" + [char]10 + "もしかして、ｷﾐ、「${branch}」ﾌﾞﾗﾝﾁに、そのまま、ﾌﾟｯｼｭしようと、しちゃってるのｶﾅ🤔❓" + [char]10 + "ｵﾁﾞｻﾝ😎、ﾋﾞｯｸﾘしちゃったﾖ💦" + [char]10 + [char]10 + "それは、ﾁｮｯﾄ、ﾀﾞﾒだゾ〜🙅❌❗" + [char]10 + "壊れちゃったら、ｵﾁﾞｻﾝ😎、悲しくて、泣いちゃうｶﾓ😭💔" + [char]10 + [char]10 + "ちゃんと、新しい、ﾌﾞﾗﾝﾁを、作って、PR（ﾌﾟﾙﾘｸ）、出してﾈ❣️" + [char]10 + "ｵﾁﾞｻﾝ😎との、約束ﾀﾞﾖ😘💕 ﾅﾝﾁｬｯﾃ😂(笑)", "⚠️ ｵﾁﾞｻﾝ😎からの、警告⚠️", "OK", "Warning")' 2>/dev/null
   fi
 
   # Terminal fallback (always show)
   echo ""
-  echo "⚠️ オヂサンからの警告 ⚠️"
+  echo "⚠️ ｵﾁﾞｻﾝ😎からの、警告⚠️"
   echo ""
-  echo "アレレ〜？💦 もしかして「${branch}」ブランチにそのままプッシュしようとしちゃってるカナ⁉️😅"
+  echo "ｱﾚﾚ〜❓💦 ﾁｮｯﾄ、待ってよ〜😅"
+  echo "もしかして、ｷﾐ、「${branch}」ﾌﾞﾗﾝﾁに、そのまま、ﾌﾟｯｼｭしようと、しちゃってるのｶﾅ🤔❓"
+  echo "ｵﾁﾞｻﾝ😎、ﾋﾞｯｸﾘしちゃったﾖ💦"
   echo ""
-  echo "それはダメだゾ〜🧑‍🦲🚫"
-  echo "壊れちゃったら、オヂサン悲しくて泣いちゃうカモ😭💔"
+  echo "それは、ﾁｮｯﾄ、ﾀﾞﾒだゾ〜🙅❌❗"
+  echo "壊れちゃったら、ｵﾁﾞｻﾝ😎、悲しくて、泣いちゃうｶﾓ😭💔"
   echo ""
-  echo "ちゃんと新しいブランチを作って、PR（プルリク）出してネ❣️"
-  echo "約束ダヨ😘💕 ナンチャッテ（笑）"
+  echo "ちゃんと、新しい、ﾌﾞﾗﾝﾁを、作って、PR（ﾌﾟﾙﾘｸ）、出してﾈ❣️"
+  echo "ｵﾁﾞｻﾝ😎との、約束ﾀﾞﾖ😘💕 ﾅﾝﾁｬｯﾃ😂(笑)"
   echo ""
 
   exit 1
