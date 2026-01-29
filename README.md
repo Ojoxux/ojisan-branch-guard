@@ -2,8 +2,8 @@
 
 > main/masterﾌﾞﾗﾝﾁへの直接commit/pushを防ぐｵﾁﾞｻﾝ警告git hook
 
-![npm version](https://img.shields.io/npm/v/ojisan-guard)
-![license](https://img.shields.io/npm/l/ojisan-guard)
+![npm version](https://img.shields.io/npm/v/ojisan-branch-guard)
+![license](https://img.shields.io/npm/l/ojisan-branch-guard)
 
 ## これは何？
 
