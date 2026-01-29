@@ -78,6 +78,27 @@ const getProjectRoot = (): string => {
   }
 };
 
+const getDefaultBranch = (): string => {
+  // 1. Check if main branch exists
+  try {
+    execSync("git show-ref --verify --quiet refs/heads/main", { encoding: "utf-8" });
+    return "main";
+  } catch {
+    // ignore
+  }
+
+  // 2. Check if master branch exists
+  try {
+    execSync("git show-ref --verify --quiet refs/heads/master", { encoding: "utf-8" });
+    return "master";
+  } catch {
+    // ignore
+  }
+
+  // 3. Default to main
+  return "main";
+};
+
 const getHuskyDir = (): string | null => {
   const projectRoot = getProjectRoot();
   const huskyDir = path.join(projectRoot, ".husky");
@@ -193,19 +214,19 @@ const uninstall = (): void => {
 
 const showHelp = (): void => {
   console.log(`
-🧔 ojisan-guard - mainブランチへの直接pushを防ぐオヂサン
+🧔 ojisan-guard - デフォルトブランチへの直接commit/pushを防ぐオヂサン
 
 使い方:
-  npx ojisan-guard install [--branch=main]   オヂサンを配置
-  npx ojisan-guard uninstall                 オヂサンを解除
+  npx ojisan-guard install [--branch=<name>]   オヂサンを配置
+  npx ojisan-guard uninstall                   オヂサンを解除
 
 オプション:
-  --branch=<name>   監視するブランチ名 (デフォルト: main)
+  --branch=<name>   監視するブランチ名 (省略時: 自動検出)
   --help, -h        このヘルプを表示
 
 例:
-  npx ojisan-guard install
-  npx ojisan-guard install --branch=master
+  npx ojisan-guard install              # デフォルトブランチを自動検出
+  npx ojisan-guard install --branch=develop
   npx ojisan-guard uninstall
 `);
 };
@@ -215,11 +236,16 @@ const args = process.argv.slice(2);
 const command = args[0];
 
 // Parse --branch option
-let branch = "main";
+let branch: string | null = null;
 for (const arg of args) {
   if (arg.startsWith("--branch=")) {
     branch = arg.split("=")[1];
   }
+}
+
+// Auto-detect if not specified
+if (branch === null) {
+  branch = getDefaultBranch();
 }
 
 switch (command) {
